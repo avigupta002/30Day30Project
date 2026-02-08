@@ -99,7 +99,7 @@ A structured **30-day project-based learning challenge** using **HTML, CSS, and 
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/30-days-30-projects.git
+git clone https://github.com/avigupta002/30Day30Project.git
 ```
 
 2. Open any project folder
