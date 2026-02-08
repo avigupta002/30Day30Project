@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+<div class="clock">
+  <div class="box"><span id="h" class="time">12</span></div>
+  <span class="colon">:</span>
+  <div class="box"><span id="m" class="time">00</span></div>
+  <span class="colon">:</span>
+  <div class="box"><span id="s" class="time">00</span></div>
+  <span id="ampm" class="ampm">AM</span>
+</div>
+
+<!-- THEME CONTROLS -->
+<div class="controls">
+  <button onclick="theme('dark')">🌑 Dark</button>
+  <button onclick="theme('blue')">🔵 Blue</button>
+  <button onclick="theme('green')">🟢 Green</button>
+</div>
+
+<!-- Tick Sound -->
+<audio id="tick" src="https://assets.mixkit.co/sfx/preview/mixkit-clock-tick-1059.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Billing System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="card" id="receipt">
+        <h1>Billing System</h1>
+        <label>Bill Amount (₹)</label>
+        <input type="number" id="bill">
+        <div class="row">
+            <div>
+                <label>Discount (%)</label>
+                <input type="number" id="discount" value="0">
+            </div>
+            <div>
+                <label>Tax (%)</label>
+                <input type="number" id="tax" value="0">
+            </div>
+        </div>
+        <label>Cash Given (₹)</label>
+        <input type="number" id="cash">
+        <button onclick="calculate()">Calculate</button>
+        <div id="error"></div>
+        <div class="summary" id="summary"></div>
+        <div class="actions">
+            <button onclick="printReceipt()">Print</button>
+            <button class="secondary" onclick="downloadPDF()">Download PDF</button>
+        </div>
+
+        <!-- CASH RETURN TABLE -->
+        <table class="table">
+            <caption>Return Change</caption>
+            <tr>
+                <th>No of Notes</th>
+                <td class="no-of-notes"></td>
+                <td class="no-of-notes"></td>
+                <td class="no-of-notes"></td>
+                <td class="no-of-notes"></td>
+                <td class="no-of-notes"></td>
+                <td class="no-of-notes"></td>
+                <td class="no-of-notes"></td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>2000</td>
+                <td>500</td>
+                <td>100</td>
+                <td>20</td>
+                <td>10</td>
+                <td>5</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

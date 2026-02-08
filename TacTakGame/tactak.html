@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="D:\js , html\myntra\js\imge.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .player {
+            width: 30%;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px;
+            color: #fff;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ff0000, #ff7300);
+            box-shadow: 0 0 15px rgba(255, 115, 0, 0.6), 0 0 30px rgba(255, 115, 0, 0.5);
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #282828, #383838);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            background-color: #444;
+            box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /*
+        .line {
+            position: absolute;
+            background-color: red;
+            height: 5px;
+            z-index: 5;
+            margin-top: 10px;
+            display: none;
+            transition: all 0.5s ease;
+        }
+            */
+        .rest-button {
+            padding: 1rem;
+            font-size: 1.25rem;
+            background-color: #ff1717;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #ff0000, #ff7300);
+            box-shadow: 0 0 5px rgba(255, 115, 0, 0.6), 0 0 30px rgba(255, 115, 0, 0.1);
+        }
+
+        .scoreboard {
+            margin: 20px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .msg-container {
+            height: 30vmin;
+            margin-bottom: 95px;
+            text-align: center;
+        }
+
+        .msg {
+            color: #a09035;
+            font-size: 8vmin;
+            font-weight: bold;
+            margin-left: 15px;
+            text-align: center;
+            align-items: center;
+        }
+
+        #new-btn {
+            /* position: fixed; */
+            /* top: 100px; */
+            /* Distance from the top of the viewport */
+            /* right: 50px; */
+            /* Distance from the right of the viewport */
+
+            padding: 1rem;
+            font-size: 1.25rem;
+            background-color: #ff1717;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, #ff0000, #ff7300);
+            box-shadow: 0 0 5px rgba(255, 115, 0, 0.6), 0 0 30px rgba(255, 115, 0, 0.1);
+            z-index: 1000;
+            /* Ensure it stays above other elements */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="msg-container hide">
+        <p class="msg"></p><span>
+            <button id="new-btn">New Game</button></span>
+
+    </div>
+    <div class="main">
+        <div class="player">PLAYER 1: <span id="player1-score">0</span></div>
+        <div class="player">PLAYER 2: <span id="player2-score">0</span></div>
+    </div>
+
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div class="board">
+            <!-- 9 cells for the Tic Tac Toe grid -->
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="line" id="win-line"></div>
+    </div>
+    <button class="rest-button">RESTART</button>
+
+    <script>
+        const cells = document.querySelectorAll(".cell");
+        const resetButton = document.querySelector(".rest-button");
+        const player1ScoreElem = document.getElementById("player1-score");
+        const player2ScoreElem = document.getElementById("player2-score");
+        const winLine = document.getElementById("win-line");
+        const newGameBtn = document.querySelector("#new-btn");
+        const msg = document.querySelector(".msg");
+        const msgContainer = document.querySelector(".msg-container");
+
+        let turnO = true;
+        let player1Score = 0;
+        let player2Score = 0;
+
+        const winPatterns = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+
+        cells.forEach((cell, index) => {
+            cell.addEventListener("click", () => {
+                if (cell.innerHTML === "") {
+                    cell.innerHTML = turnO ? "O" : "X";
+                    turnO = !turnO;
+
+                    const winner = checkWin();
+                    if (winner) {
+                        drawLine(winner.pattern);
+                        highlightWinningCells(winner.pattern);
+                        showWinner(winner.symbol);
+                        if (winner.symbol === "X") {
+                            player1Score++;
+                            player1ScoreElem.textContent = player1Score;
+                        } else {
+                            player2Score++;
+                            player2ScoreElem.textContent = player2Score;
+                        }
+                        disableBoard();
+                    } else if (Array.from(cells).every(c => c.innerHTML !== "")) {
+                        msg.innerHTML = "It's a draw!";
+                        msgContainer.classList.remove("hide");
+                    }
+                }
+            });
+        });
+
+        const showWinner = (symbol) => {
+            msg.innerHTML = `Congratulations, the winner is ${symbol === "X" ? "Player 1 (X)" : "Player 2 (O)"}`;
+            msgContainer.classList.remove("hide");
+        };
+
+        const checkWin = () => {
+            for (let pattern of winPatterns) {
+                const [a, b, c] = pattern;
+                if (
+                    cells[a].innerHTML !== "" &&
+                    cells[a].innerHTML === cells[b].innerHTML &&
+                    cells[a].innerHTML === cells[c].innerHTML
+                ) {
+                    return { pattern, symbol: cells[a].innerHTML };
+                }
+            }
+            return null;
+        };
+
+        const drawLine = (pattern) => {
+            const [a, b, c] = pattern;
+            const startCell = cells[a].getBoundingClientRect();
+            const endCell = cells[c].getBoundingClientRect();
+            const board = document.querySelector(".board").getBoundingClientRect();
+
+            winLine.style.display = "block";
+            winLine.style.width = `${Math.sqrt(
+                Math.pow(endCell.left - startCell.left, 2) +
+                Math.pow(endCell.top - startCell.top, 2)
+            )}px`;
+            winLine.style.transformOrigin = "0 0";
+            winLine.style.transform = `rotate(${Math.atan2(
+                endCell.top - startCell.top,
+                endCell.left - startCell.left
+            )}rad)`;
+            winLine.style.left = `${startCell.left - board.left + startCell.width / 2}px`;
+            winLine.style.top = `${startCell.top - board.top + startCell.height / 2}px`;
+        };
+
+        const highlightWinningCells = (pattern) => {
+            pattern.forEach(index => {
+                cells[index].style.backgroundColor = "rgba(255, 215, 0, 0.7)";
+            });
+        };
+
+        const disableBoard = () => {
+            cells.forEach(cell => cell.style.pointerEvents = "none");
+        };
+
+        resetButton.addEventListener("click", () => {
+            cells.forEach(cell => {
+                cell.innerHTML = "";
+                cell.style.backgroundColor = "#444";
+                cell.style.pointerEvents = "auto";
+            });
+            turnO = true;
+            winLine.style.display = "";
+        });
+
+        newGameBtn.addEventListener("click", () => {
+            msgContainer.classList.add("hide");
+            resetButton.click();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silly Story Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .story-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .input-container {
+            position: relative;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .radio-container{
+            position: absolute;
+            margin-bottom: 10px;
+           
+
+        }
+         label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+            color: #999;
+            transition: 0.3s ease;
+            background-color: #fff;
+            padding: 0 5px;
+        }
+         input[type="text"] {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+        button {
+           padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        } 
+        input[type="text"]:focus, input[type="text"]:not(:placeholder-shown) {
+            border-color: #4CAF50;
+        }
+        input[type="text"]:focus + label, input[type="text"]:not(:placeholder-shown) + label {
+            top: -10px;
+            font-size: 12px;
+            color: #4CAF50;
+        }
+        .radio-container {
+            margin: 10px 0;
+        }
+        .story-output {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <h1>Silly Story Generator</h1>
+        <div class="input-container">
+            <input type="text" id="customName" placeholder=" " />
+            <label for="customName">Enter a custom name</label>
+        </div>
+        
+        <div class="radio-container">
+            <label><input type="radio" name="unit" value="us" checked> US</label>
+            <label><input type="radio" name="unit" value="uk"> UK</label>
+        </div>
+        
+        <button id="generateStory">Generate random story</button>
+        
+        <div class="story-output" id="storyOutput"></div>
+    </div>
+    <div class="button1">
+        <button>color change</button>
+    </div>
+    <script>
+        const stories = [
+            "One day, Bob went for a walk and lifted 50 pounds in the sweltering heat of 100°F!",
+            "Bob ate a gigantic 30-pound sandwich while the temperature outside was 95°F.",
+            "Feeling adventurous, Bob tried to jump over a puddle, but it was 20 pounds too heavy and 80°F too warm!"
+        ];
+
+        document.getElementById("generateStory").addEventListener("click", generateStory);
+
+        function generateStory() {
+            const customName = document.getElementById("customName").value.trim();
+            const isUK = document.querySelector('input[name="unit"]:checked').value === "uk";
+
+            // Select a random story
+            let story = stories[Math.floor(Math.random() * stories.length)];
+
+            // Replace "Bob" with custom name if provided
+            if (customName) {
+                story = story.replace("Bob", customName);
+            }
+
+            // Convert units if UK option is selected
+            if (isUK) {
+                story = convertToUKUnits(story);
+            }
+
+            // Display the story
+            document.getElementById("storyOutput").textContent = story;
+        }
+
+        function convertToUKUnits(story) {
+            // Replace pounds with stones and Fahrenheit with Celsius (approximations)
+            story = story.replace(/(\d+)\s*pounds/g, (match, pounds) => {
+                const stones = (pounds / 14).toFixed(1);
+                return `${stones} stones`;
+            });
+
+            story = story.replace(/(\d+)\s*°F/g, (match, fahrenheit) => {
+                const celsius = ((fahrenheit - 32) * 5 / 9).toFixed(1);
+                return `${celsius}°C`;
+            });
+
+            return story;
+        }
+
+        const btn = document.querySelector(".button1 button");
+
+         function random(number) {
+            return Math.floor(Math.random() * (number + 1 ));
+
+
+         }
+         btn.addEventListener("click", () => {
+    const color1 = `rgb(${random(250)}, ${random(255)}, ${random(260)})`;
+    const color2 = `rgb(${random(251)}, ${random(225)}, ${random(255)})`;
+    document.body.style.background = `linear-gradient(90deg, ${color1}, ${color2})`;
+    document.body.style.background = `linear-gradient(60deg, ${color1}, ${color2})`;
+
+});
+    </script>
+</body>
+</html>

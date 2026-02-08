@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="weather.css" />
+</head>
+
+<body class="default-bg">
+
+  <header class="header">
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <main class="container">
+    <section class="card input-card">
+      <h3>Search City</h3>
+      <input type="text" class="city-input" placeholder="Enter city name">
+      <button class="search-btn">Search</button>
+      <div class="separator">OR</div>
+      <button class="location-btn">
+        <span class="loc-icon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path
+              d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </span>
+        <span>Use Current Location</span>
+      </button>
+    </section>
+    <section class="weather-section">
+      <div class="card current-weather">
+        <div class="left">
+          <h2 class="city-name">City, Country</h2>
+          <p class="date">Today</p>
+          <h1 class="temp">--°C</h1>
+          <p class="desc">---</p>
+        </div>
+        <div class="right">
+          <img class="weather-icon" src="assets/clear.png" alt="">
+          <p>Wind: <span class="wind">--</span> m/s</p>
+          <p>Humidity: <span class="humidity">--</span>%</p>
+        </div>
+      </div>
+      <h3 class="forecast-title">5-Day Forecast</h3>
+      <ul class="forecast"></ul>
+    </section>
+  </main>
+
+  <script src="weather.js"></script>
+</body>
+
+</html>

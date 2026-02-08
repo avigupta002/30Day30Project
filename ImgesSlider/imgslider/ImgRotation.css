@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #000428, #004e92);
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotate 20s infinite linear;
+}
+
+/* 🔹 Pause rotation on hover */
+.container:hover .slider {
+    animation-play-state: paused;
+}
+
+.slider img {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s, box-shadow 0.5s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 🔹 Image hover effect */
+.slider img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.slider img:nth-child(1) {
+    transform: rotateY(0deg) translateZ(400px);
+}
+
+.slider img:nth-child(2) {
+    transform: rotateY(72deg) translateZ(400px);
+}
+
+.slider img:nth-child(3) {
+    transform: rotateY(144deg) translateZ(400px);
+}
+
+.slider img:nth-child(4) {
+    transform: rotateY(216deg) translateZ(400px);
+}
+
+.slider img:nth-child(5) {
+    transform: rotateY(288deg) translateZ(400px);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="sign.css">
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="logo">
+            <i class="fas fa-shopping-bag"></i>
+            amazon
+        </a>
+    </div>
+    
+    <div class="container">
+        <div class="auth-container sign-in-container">
+            <h1 class="auth-title">Sign in</h1>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email or mobile phone number</label>
+                    <input type="text" class="form-control" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                    <div style="text-align: right; margin-top: 5px;">
+                        <a href="#" style="font-size: 12px; color: #0066c0; text-decoration: none;">Forgot your password?</a>
+                    </div>
+                </div>
+                
+                <button  type="submit" class="btn btn-primary" >Sign in</button>
+                
+                <div class="divider">or</div>
+                
+                <button type="button" class="btn btn-secondary">
+                    <i class="fab fa-google"></i> Sign in with Google
+                </button>
+                
+                <div class="help-links">
+                    <p>
+                        <input type="checkbox" id="keepSignedIn" style="margin-right: 5px;">
+                        <label for="keepSignedIn">Keep me signed in</label>
+                    </p>
+                    <p style="margin-top: 15px;">
+                        By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+                    </p>
+                </div>
+            </form>
+            
+            <div class="auth-switch">New to Amazon?</div>
+            
+            <button class="auth-action" id="showCreateAccount">Create your Amazon account</button>
+        </div>
+        
+        <!-- Create Account Container -->
+        <div class="auth-container create-account-container">
+            <h1 class="auth-title">Create account</h1>
+            
+            <form id="createAccountForm">
+                <div class="name-fields">
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="newEmail">Email</label>
+                    <input type="email" class="form-control" id="newEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="newPassword">Password</label>
+                    <input type="password" class="form-control" id="newPassword" placeholder="At least 6 characters" required>
+                    <div class="password-requirements">
+                        <div class="requirement" id="lengthReq">
+                            <i class="fas fa-circle"></i> Passwords must be at least 6 characters.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Re-enter password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create your Amazon account</button>
+                
+                <div class="help-links">
+                    <p style="margin-top: 15px;">
+                        By creating an account, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+                    </p>
+                </div>
+            </form>
+            
+            <div class="auth-switch">Already have an account?</div>
+            
+            <button class="auth-action" id="showSignIn">Sign in</button>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">Conditions of Use</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="copyright">
+            © 1996-2023, Amazon.com, Inc. or its affiliates
+        </div>
+    </div>
+
+    <script>
+        const signInContainer = document.querySelector('.sign-in-container');
+        const createAccountContainer = document.querySelector('.create-account-container');
+        const showCreateAccountBtn = document.getElementById('showCreateAccount');
+        const showSignInBtn = document.getElementById('showSignIn');
+        const loginForm = document.getElementById('loginForm');
+        const createAccountForm = document.getElementById('createAccountForm');
+        const newPassword = document.getElementById('newPassword');
+        const lengthReq = document.getElementById('lengthReq');
+        
+        // Toggle between sign in and create account forms
+        showCreateAccountBtn.addEventListener('click', () => {
+            signInContainer.style.display = 'none';
+            createAccountContainer.style.display = 'block';
+        });
+        
+        showSignInBtn.addEventListener('click', () => {
+            createAccountContainer.style.display = 'none';
+            signInContainer.style.display = 'block';
+        });
+        
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email) {
+                alert('Please enter your email or mobile phone number');
+                return;
+            }
+            
+            if (!password) {
+                alert('Please enter your password');
+                return;
+            }
+
+            console.log('Login attempt with:\nEmail: ' + email + '\nPassword: ' + password);
+          if(email !== "" && password !== ""){
+              window.location.href = "INDEX.html"
+
+          }else{
+            alert("please fill the fileds ooptin ");
+          }
+
+        });
+        
+        // Create account form submission
+        createAccountForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('newEmail').value;
+            const password = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (!firstName) {
+                alert('Please enter your first name');
+                return;
+            }
+            
+            if (!lastName) {
+                alert('Please enter your last name');
+                return;
+            }
+            
+            if (!email) {
+                alert('Please enter your email');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            console.log('Account creation attempt with:\nName: ' + firstName + ' ' + lastName + '\nEmail: ' + email);
+        });
+    </script>
+</body>
+</html>

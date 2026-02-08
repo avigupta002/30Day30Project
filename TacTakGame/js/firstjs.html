@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        font-family: "helvetica neue", helvetica, sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 2px solid rgb(200 200 0 / 60%);
+        background-color: rgb(0 217 217 / 60%);
+        color: rgb(100 0 0 / 100%);
+        box-shadow: 1px 1px 2px rgb(0 0 200 / 40%);
+        border-radius: 10px;
+        padding: 18px 80px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <button type="button" onclick="createParagraph()">I'm: </button>
+</body>
+<script>
+const button = document.querySelector('button');
+
+button.addEventListener("click", updateName);
+
+function updateName() {
+    const name = prompt("Enter a new name");
+    if (name) { // Check if a name was entered
+        button.textContent = `I'm: ${name}`;
+    }
+}
+function createParagraph() {
+  const para = document.createElement("p");
+  para.textContent = "You clicked the button!";
+  document.body.appendChild(para);
+}
+
+const buttons = document.querySelectorAll("button");
+
+for (const button of buttons) {
+  button.addEventListener("click", createParagraph);
+}
+
+</script>
+</html>

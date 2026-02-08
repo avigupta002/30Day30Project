@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator</title>
+    <link rel="stylesheet" href="salarycals.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Salary Calculator</h1>
+        <form id="salary-form">
+            <label for="base-salary">Enter your base salary:</label>
+            <input type="number" id="base-salary" required>
+            
+            <label for="years-of-service">Enter your years of service:</label>
+            <input type="number" id="years-of-service" required>
+            
+            <label for="tax-percentage">Enter tax percentage:</label>
+            <input type="number" id="tax-percentage" required>
+            
+            <button type="button" onclick="calculateSalary()">Calculate Salary</button>
+        </form>
+        <p id="result"></p>
+        
+        <div id="invoice" class="invoice">
+            <h2>Invoice</h2>
+            <p><strong>Base Salary:</strong> <span id="invoice-base-salary"></span></p>
+            <p><strong>Years of Service:</strong> <span id="invoice-years-of-service"></span></p>
+            <p><strong>Tax Percentage:</strong> <span id="invoice-tax-percentage"></span></p>
+            <p><strong>Net Salary:</strong> <span id="invoice-net-salary"></span></p>
+        </div>
+    </div>
+
+</body>
+<script src="salarycals.js"></script>
+</html>

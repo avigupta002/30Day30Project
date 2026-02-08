@@ -1,0 +1,491 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+    --base-color: #cbd3f5;
+    --base-variant: #bec5e2;
+    --text-color: #f2f2f2;
+    --button-bg-color: #caaf19;
+    --card-bg-color: #ff0037;
+    --background: #240449;
+}
+
+.dark-mode {
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #f2f2f2;
+    --button-bg-color: #444444;
+    --card-bg-color: #333333;
+    --background: #3f4346;
+}
+
+body.darkmode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.wrapper.darkmode {
+    background-color: #1e1e1e;
+    color: #d1d1d1;
+}
+
+button,
+input,
+.info-txt {
+    color: #ffffff;
+}
+
+#theme-switch {
+    background-color: var(--base-variant);
+    display: flex;
+    align-items: center;
+   border: none;
+   cursor: pointer;
+}
+#theme-switch .icon {
+  width: 22px;
+  height: 22px;
+  fill: #282c3f;
+}
+.sun {
+  display: none;
+}
+
+/* dark mode */
+.dark .sun {
+  display: block;
+}
+.dark .moon {
+  display: none;
+}
+.dark {
+  background: #121212;
+  color: #fff;
+}
+
+.dark header {
+  background: #1e1e1e;
+}
+
+.dark .search_input {
+  background: #2a2a2a;
+  border-color: #333;
+  color: #fff;
+}
+
+
+
+#theme-switch svg {
+    fill: var(--primary-color);
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    gap: 30px;
+}
+
+.myntra_home {
+    height: 45px;
+}
+
+.logo_container {
+    flex-shrink: 0;
+}
+
+.logo_container img {
+    height: 45px;
+    cursor: pointer;
+}
+
+/* .action_bar {
+    margin-right: 4%;
+} */
+
+.nav_bar {
+    display: flex;
+    /* min-width: 500px; */
+    gap: 20px;
+    /* justify-content: space-evenly; */
+}
+
+.nav_bar a {
+    font-size: 14px;
+    letter-spacing: .3px;
+    color: #282c3f;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 28px 0;
+    border-bottom: 5px solid #ffffff;
+}
+
+.nav_bar a:hover {
+    border-bottom: 4px solid #f54e77;
+}
+
+.nav_bar a sup {
+    color: #ff3f6c;
+    font-size: 10px;
+}
+.search_bar form{
+    position:  relative;
+}
+
+.search_bar {
+    flex: 1;
+    max-width: 420px;
+}
+
+.search_icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+}
+
+.search_input {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: #f5f5f6;
+    font-size: 14px;
+}
+
+.action_bar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.action_container {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+
+
+}
+
+.action-icon {
+    font-size: 22px;
+    margin-bottom: 2px;
+    color: #282c3f;
+}
+
+.action_name {
+    font-size: 12px;
+    color: #282c3f;
+}
+
+@media (max-width: 1024px) {
+    .nav_bar {
+        display: none;
+    }
+
+    .search_bar {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0 15px;
+    }
+
+    .action_name {
+        display: none;
+    }
+
+    .search_bar {
+        display: none;
+    }
+}
+
+.dis {
+    margin-bottom: 50px;
+    width: 80%;
+}
+
+.dis img {
+    margin-top: 120px;
+    align-items: center;
+    padding-right: 100px;
+    margin-left: 150px;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+
+}
+
+@media (max-width: 768px) {
+    .dis{
+        width: 80%;
+    }
+    .dis img{
+     width: 100%;
+    }
+}
+/* Hover effect for dis image */
+.dis img:hover {
+    transform: scale(1.08);
+    /* Slight zoom effect */
+    /* Slight fade to give depth */
+}
+
+.sop {
+    display: flex;
+    align-items: center;
+    /* Optional: to align them vertically in the center */
+
+}
+
+.sop {
+    display: flex;
+    justify-content: center;
+}
+
+.slider {
+    overflow: hidden;
+    /* Hide overflow to prevent showing slides outside the container */
+    position: relative;
+    /* Position relative for absolute positioning of slides */
+}
+
+.slides-container {
+    display: flex;
+    /* Align slides in a row */
+    transition: transform 0.5s ease-in-out;
+    /* Smooth transition for slide change */
+}
+
+.slide {
+    min-width: 100%;
+    /* Each slide takes full width of the slider */
+}
+
+/* Styling for images inside .sop */
+.sop img {
+    width: 100%;
+    /* Set a width for consistency */
+    height: auto;
+    justify-content: space-between;
+    /* Maintain image aspect ratio */
+    transition: transform 0.3s ease;
+    /* Smooth zoom effect on hover */
+}
+
+/* Hover effect for .sop images */
+.sop img:hover {
+    transform: scale(1.05);
+    /* Slight zoom-in on hover */
+}
+
+
+
+
+/* Main section */
+.banner_container {
+    margin: 300px 30px 100px;
+
+}
+
+.banner_image {
+    width: 100%;
+}
+
+.category_heading {
+    text-transform: uppercase;
+    color: #3e4152;
+    letter-spacing: .15em;
+    font-size: 1.8em;
+    margin: 50px 0 10px 30px;
+    max-height: 5em;
+    font-weight: 700;
+}
+
+.category_items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.sale_item {
+    width: 250px;
+}
+
+.footer_container {
+    padding: 30px 0px 40px 0px;
+    background: #FAFBFC;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer_column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_column h3 {
+    color: #282c3f;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.footer_column a {
+    color: #696b79;
+    font-size: 15px;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.copyright {
+    color: #94969f;
+    text-align: end;
+    padding: 15px;
+}
+
+
+
+
+/* Animation for hover effect on images */
+.sale_item,
+.banner_image,
+.sop img,
+.dis img {
+    transition: transform 0.3s ease;
+}
+
+.sale_item:hover,
+.banner_image:hover,
+.sop img:hover,
+.dis img:hover {
+    transform: scale(1.05);
+    transform: scaleY(1.0);
+}
+
+/* Animation for the dis image */
+
+/* CSS for reduced opacity */
+.dimmed {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+/* Styling for the .sop section */
+/* Slider container */
+/* Slider Container */
+.slider {
+    width: 90%;
+    overflow: hidden;
+    position: relative;
+    justify-content: center;
+    margin-left: 5%;
+}
+
+/* Slides Wrapper */
+.slides-container {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+/* Individual Slide */
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.dropdown-content {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    margin-right: 250px;
+    margin-top: 50px;
+}
+
+/* Show dropdown on hover */
+.nav_bar a:hover+.dropdown-content {
+    display: block;
+}
+
+.nav_bar a:hover .dropdown-content {
+    display: block;
+}
+
+/* Styling inside dropdown */
+.dropdown-content h1 {
+    font-size: 18px;
+    color: #e90202;
+    margin: 0 0 10px 0;
+}
+
+.dropdown-content ul {
+    list-style: none;
+    padding: 0;
+
+}
+
+.dropdown-content li {
+    color: #333;
+    margin: 5px 0;
+}
+
+.dropdown-content li:hover {
+    color: #5c3939;
+}
+
+
+@media screen and (max-width: 800px) {
+    header {
+        flex-direction: column;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    .action-bar {
+        display: flex;
+        justify-content: center;
+    }
+
+    .slider {
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #7d5fff, #7158e2);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  padding: 25px 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #777;
+}
+
+.icon-wrapper {
+  margin-top: 10px;
+}
+
+#search-icon {
+  font-size: 22px;
+  color: #7158e2;
+  background: #f0edff;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#search-icon:hover {
+  background: #7158e2;
+  color: white;
+  transform: scale(1.1);
+}
+
+#filter {
+  margin-top: 15px;
+  padding: 10px;
+  width: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: width 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+#filter.active {
+  width: 80%;
+  opacity: 1;
+}
+
+.user-list {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}

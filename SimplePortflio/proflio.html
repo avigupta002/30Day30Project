@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="proflio.css">
+ 
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true"></div>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">Rk</div>
+        <div>
+          <div style="font-weight:800">Ravi Kumar</div>
+          <div style="font-size:0.8rem;color:var(--muted)">Developer</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home" class="navlink active">Home</a></li>
+          <li><a href="#about" class="navlink">About</a></li>
+          <li><a href="#projects" class="navlink">Projects</a></li>
+          <li><a href="#contact" class="navlink">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="cta" href="#contact">Hire Me</a>
+        <button class="hamburger" id="hamburger" aria-label="menu">☰</button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <a href="#home" class="navlink">Home</a>
+        <a href="#about" class="navlink">About</a>
+        <a href="#projects" class="navlink">Projects</a>
+        <a href="#contact" class="navlink">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-grid">
+        <div class="intro">
+          <div class="section-title reveal"><h2>Welcome</h2><p class="muted">I build clean, accessible, and delightful web experiences.</p></div>
+          <h1 class="reveal">Hi, I’m <span style="background:linear-gradient(90deg,var(--accent-2),var(--accent-1));-webkit-background-clip:text;color:transparent">Ravi Kumar</span>,<br><span style="font-weight:600;color:var(--muted)">Frontend Developer</span></h1>
+          <p class="reveal">I craft fast, responsive interfaces using modern HTML, CSS and JavaScript. I love working on UI/UX, performance and accessibility.</p>
+
+          <div class="hero-buttons reveal" style="--delay:0ms">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-outline" href="#contact">Contact Me</a>
+          </div>
+
+          <div style="margin-top:18px" class="reveal">
+            <small class="muted">Available for freelance & full-time roles • Based anywhere</small>
+          </div>
+        </div>
+
+        <aside class="visual reveal">
+          <!-- placeholder profile image: replace with your image -->
+          <div class="profile" aria-hidden="true">
+            <img src="profile.jpeg" alt="Profile placeholder">
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:12px;align-items:center;justify-content:space-between">
+            <div class="muted" style="font-size:0.9rem">Fresher</div>
+            <div style="font-weight:700"> Years</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title reveal">
+        <h2>About</h2>
+        <p class="muted">Short, crisp intro and skills</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="bio-card reveal">
+          <p style="margin-top:0">I’m a frontend developer focused on building performant and accessible interfaces. I enjoy turning ideas into delightful experiences — from prototyping to production.</p>
+
+          <div class="skills">
+            <div class="skill">
+              <div class="label"><span>HTML</span></div>
+              <div class="progress"><span data-progress="95" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-1))"></span></div>
+            </div>
+            <div class="skill">
+              <div class="label"><span>CSS</span></div>
+              <div class="progress"><span data-progress="92" style="background:linear-gradient(90deg,var(--accent-1),var(--accent-2))"></span></div>
+            </div>
+            <div class="skill">
+              <div class="label"><span>JavaScript</span></div>
+              <div class="progress"><span data-progress="88" style="background:linear-gradient(90deg,var(--accent-2),var(--accent-1))"></span></div>
+            </div>
+            <div class="skill">
+              <div class="label"><span>React</span></div>
+              <div class="progress"><span data-progress="80" style="background:linear-gradient(90deg,var(--accent-1),var(--accent-2))"></span></div>
+            </div>
+                <div class="skill">
+              <div class="label" style="cursor: pointer ;"><span>More</span></div>
+              <!-- <div class="progress"><span data-progress="80" style="background:linear-gradient(90deg,var(--accent-1),var(--accent-2))"></span></div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="bio-card reveal">
+          <h3 style="margin-top:0">What I do</h3>
+          <ul class="muted">
+            <li>UI/UX-focused frontend development</li>
+            <li>Responsive layouts using Flexbox & Grid</li>
+            <li>Accessible components and semantic markup</li>
+            <li>Performance tuning & lightweight JS</li>
+          </ul>
+
+          <div style="margin-top:18px; display:flex;gap:10px;align-items:center">
+            <a class="btn btn-outline" href="#projects">See Work</a>
+            <a class="btn" href="#">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title reveal">
+        <h2>Projects</h2>
+        <p class="muted">A few selected works</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- project 1 -->
+        <article class="card reveal">
+          <div class="meta">Web App</div>
+          <div class="title">Project Alpha</div>
+          <p>Interactive dashboard with real-time charts and responsive layout. Built with vanilla JS and charting libraries.</p>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#" aria-label="View project">Live</a>
+            <a class="btn" href="#" aria-label="Repo link">Source</a>
+          </div>
+        </article>
+
+        <!-- project 2 -->
+        <article class="card reveal">
+          <div class="meta">Landing Page</div>
+          <div class="title">Marketing Landing</div>
+          <p>High-converting landing page with animations and A/B tested hero section.</p>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#">Live</a>
+            <a class="btn" href="#">Source</a>
+          </div>
+        </article>
+
+        <!-- project 3 -->
+        <article class="card reveal">
+          <div class="meta">Component Library</div>
+          <div class="title">UI Kit</div>
+          <p>Reusable components focused on accessibility and theming. Includes buttons, modals, and forms.</p>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#">Demo</a>
+            <a class="btn" href="#">Source</a>
+          </div>
+        </article>
+
+        <!-- project 4 -->
+        <article class="card reveal">
+          <div class="meta">PWA</div>
+          <div class="title">Offline Notes</div>
+          <p>Progressive web app for note-taking with offline sync and local storage.</p>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#">Live</a>
+            <a class="btn" href="#">Source</a>
+          </div>
+        </article>
+
+        <!-- project 5 -->
+        <article class="card reveal">
+          <div class="meta">E-commerce</div>
+          <div class="title">Shop Front</div>
+          <p>Small e-commerce UI with cart interactions, product filters and animations.</p>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#">Live</a>
+            <a class="btn" href="#">Source</a>
+          </div>
+        </article>
+
+        <!-- project 6 -->
+        <article class="card reveal">
+          <div class="meta">Tool</div>
+          <div class="title">Image Optimizer</div>
+          <p>CLI + web UI that compresses images for performance and generates responsive sets.</p>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="#">Demo</a>
+            <a class="btn" href="#">Source</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title reveal">
+        <h2>Contact</h2>
+        <p class="muted">Let's work together — send me a message</p>
+      </div>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="reveal" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" required placeholder="Your name">
+            <div class="error" id="err-name" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" required placeholder="you@example.com">
+            <div class="error" id="err-email" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me about the project..." required></textarea>
+            <div class="error" id="err-message" aria-live="polite"></div>
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <div class="muted" id="formStatus" style="font-size:0.9rem"></div>
+          </div>
+        </form>
+
+        <aside class="bio-card reveal">
+          <h3 style="margin-top:0">Get in touch</h3>
+          <p class="muted">Email: <a href="mailto:aviKumar002.com">you@example.com</a></p>
+          <p class="muted">Location: Remote</p>
+
+          <div style="margin-top:18px">
+            <strong>Follow</strong>
+            <div style="height:12px"></div>
+            <div class="socials">
+              <!-- simple inline SVG icons -->
+              <a class="icon" href="#" aria-label="GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C5.27.65 4.09 1 4.09 1A5.07 5.07 0 0 0 4 4.77c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9.5 21.13V24"></path></svg>
+              </a>
+              <a class="icon" href="#" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-14h4v2a4 4 0 0 1 4-4z"></path><rect x="2" y="9" width="4" height="11"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a class="icon" href="#" aria-label="Twitter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4 1s-1.7 1-3.4 1a4.48 4.48 0 0 0-7.76 3v1A12.94 12.94 0 0 1 3 2s-4 9 5 13a13 13 0 0 1-7 2c9 5 20 0 20-11.5A4.5 4.5 0 0 0 23 3z"></path></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center; gap:12px;flex-wrap:wrap">
+        <div class="muted">© <span id="year"></span> Ravi kumar. All rights reserved.</div>
+        <div class="socials">
+          <a class="icon" href="#" aria-label="GitHub small">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C5.27.65 4.09 1 4.09 1A5.07 5.07 0 0 0 4 4.77c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9.5 21.13V24"></path></svg>
+          </a>
+          <a class="icon" href="#" aria-label="LinkedIn small">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-14h4v2a4 4 0 0 1 4-4z"></path><rect x="2" y="9" width="4" height="11"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="to-top" id="toTop" title="Back to top">↑</div>
+
+  <script src="proflio.js"></script>
+</body>
+</html>

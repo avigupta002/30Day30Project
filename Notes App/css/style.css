@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+/* Header */
+header {
+  background: black;
+  color: white;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+header #searchTxt {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+}
+
+/* Note Form Section */
+section {
+  background: #dcdcdc;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+section form {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 6px black;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+section form input,
+section form textarea {
+  padding: 10px 14px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  resize: none;
+  box-shadow: 0 0 3px gray;
+}
+
+section form button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+section form button:hover {
+  background-color: #1e90ff;
+}
+
+section form button:active {
+  background-color: #1c86ee;
+}
+
+/* Notes Container */
+article {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+article h4 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+#noteContainer {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual Note Card */
+.note {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding: 16px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note h5 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.note p {
+  font-size: 14px;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 80px;
+}
+
+.note .actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.note button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+}
+
+.note .deleteBtn {
+  background: #e74c3c;
+}
+
+.note .deleteBtn:hover {
+  background: #c0392b;
+}
+
+.note .editBtn {
+  background: #f39c12;
+}
+
+.note .editBtn:hover {
+  background: #d68910;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 500px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header .logo {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  #noteContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .note {
+    width: 90%;
+  }
+}
+/* Dark Mode */ 

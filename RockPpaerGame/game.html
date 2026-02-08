@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate RPS Challenge</title>
+    <link rel="stylesheet" href="game.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="floating">Ultimate RPS Challenge</h1>
+            <p>Test your luck and strategy in this enhanced Rock, Paper, Scissors game!</p>
+        </header>
+
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="robot">VS Robot</button>
+            <button class="mode-btn" data-mode="friend">VS Friend</button>
+        </div>
+        <div id="robot-game" class="game-section active">
+            <div class="game-area">
+                <div class="choices">
+                    <div class="choice" data-choice="rock">
+                        <i class="fas fa-hand-rock"></i>
+                    </div>
+                    <div class="choice" data-choice="paper">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div class="choice" data-choice="scissors">
+                        <i class="fas fa-hand-scissors"></i>
+                    </div>
+                </div>
+
+                <div class="vs-container">
+                    <div class="player-area">
+                        <div class="selection" id="player-selection">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h3>YOU</h3>
+                    </div>
+                    <div class="vs-text">VS</div>
+                    <div class="opponent-area">
+                        <div class="selection" id="robot-selection">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>ROBOT</h3>
+                    </div>
+                </div>
+
+                <div class="result" id="result"></div>
+            </div>
+
+            <div class="scoreboard">
+                <h3>Scoreboard • Round <span id="robot-round">1</span></h3>
+                <div class="scores">
+                    <div class="score">
+                        <div class="score-label">YOU</div>
+                        <div class="score-value" id="player-score">0</div>
+                    </div>
+                    <div class="score">
+                        <div class="score-label">ROBOT</div>
+                        <div class="score-value" id="robot-score">0</div>
+                    </div>
+                    <div class="score">
+                        <div class="score-label">DRAWS</div>
+                        <div class="score-value" id="draw-score">0</div>
+                    </div>
+                </div>
+                <button class="reset-btn" id="reset-robot">Reset Game</button>
+            </div>
+        </div>
+
+        <!-- VS Friend Game -->
+        <div id="friend-game" class="game-section">
+            <div class="game-area">
+                <div class="choices">
+                    <div class="choice" data-choice="rock">
+                        <i class="fas fa-hand-rock"></i>
+                    </div>
+                    <div class="choice" data-choice="paper">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div class="choice" data-choice="scissors">
+                        <i class="fas fa-hand-scissors"></i>
+                    </div>
+                </div>
+
+                <div class="vs-container">
+                    <div class="player-area">
+                        <div class="selection" id="player1-selection">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>PLAYER 1</h3>
+                    </div>
+                    <div class="vs-text">VS</div>
+                    <div class="opponent-area">
+                        <div class="selection" id="player2-selection">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>PLAYER 2</h3>
+                    </div>
+                </div>
+
+                <div class="result" id="friend-result"></div>
+            </div>
+
+            <div class="scoreboard">
+                <h3>Scoreboard</h3>
+                <div class="scores">
+                    <div class="score">
+                        <div class="score-label">PLAYER 1</div>
+                        <div class="score-value" id="player1-score">0</div>
+                    </div>
+                    <div class="score">
+                        <div class="score-label">PLAYER 2</div>
+                        <div class="score-value" id="player2-score">0</div>
+                    </div>
+                </div>
+                <button class="reset-btn" id="reset-friend">Reset Game</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
